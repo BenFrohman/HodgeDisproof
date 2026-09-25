@@ -2,30 +2,32 @@
 
 Author: Benjamin Stanley Frohman
 
-## 1. Function type (constructive `¬`)
+## The two types
 
 ```
-¬ RationalHodge
-  := RationalHodge → False
-  := (∀ D γ, ∃ z, cl z = γ) → False
+RationalHodgeNegation      := RationalHodge → False
+RationalCounterexample     := ∃ D, ∃ γ, ∀ z, cl z = γ → False
 ```
 
-A term is a function. It is not a triple.
+A term of the first is a function. A term of the second is a triple `(D_bad, γ_bad, p)`.
 
-## 2. Σ-type (explicit counterexample)
+## Lemma (`Disproof/Type.lean`)
 
-```
-∃ D, ∃ γ, ∀ z, cl z = γ → False
-```
+**Constructive (→).** `counterexample_to_negation`
 
-A term is a triple `(D_bad, γ_bad, p)` with
+From `⟨D, γ, p⟩` and a hypothetical `h : RationalHodge` take `h D γ = ⟨z, hz⟩`, then `p z hz : False`. No classical axiom.
 
-```
-p : ∀ z, cl z = γ_bad → False
-```
+**Classical (←).** `negation_to_counterexample`
 
-## 3. They are not definitionally the same
+`hNeg : RationalHodge → False` is `¬∀ D, ∀ γ, ∃ z, cl z = γ`.
+`Classical.not_forall` twice produces `D` and `γ` with `¬ ∃ z, cl z = γ`.
+`not_exists` is constructive and rewrites that as `∀ z, cl z = γ → False`.
 
-In classical logic, `¬∀ ⇔ ∃¬`. In Lean this uses `Classical.not_forall` (or `propext` + choice, depending on the lemma). This repository does not apply that axiom to manufacture a triple from a function or a function from a triple.
+**Packaging.** `equivalence` is the iff. `#print axioms equivalence` reports `Classical.choice`. That is the price of `not_forall`. It is not a term of either side.
 
-For rational Hodge both types are empty here.
+## What the lemma does not do
+
+It does not inhabit `RationalHodge`.
+It does not inhabit `RationalHodgeNegation`.
+It does not inhabit `RationalCounterexample`.
+It does not name `D_bad` or `γ_bad`.
