@@ -1,0 +1,20 @@
+{
+  "title": "The Type of a Rational Hodge Counterexample",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "description": "Records the two Lean types of a rational Hodge negation, proves they are classically equivalent, and records that both types are uninhabited. Does not produce a counterexample fourfold or class. Does not claim the Clay prize.",
+  "creators": [
+    {
+      "name": "Frohman, Benjamin Stanley"
+    }
+  ],
+  "keywords": [
+    "Hodge conjecture",
+    "rational Hodge classes",
+    "dependent type theory",
+    "Lean 4",
+    "Noether-Lefschetz"
+  ],
+  "license": "Apache-2.0",
+  "access_right": "open"
+}

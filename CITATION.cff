@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "Cite this repository as a type ledger, not as a disproof of rational Hodge."
+title: "The Type of a Rational Hodge Counterexample"
+authors:
+  - family-names: Frohman
+    given-names: Benjamin Stanley
+license: Apache-2.0
+repository-code: "https://github.com/BenFrohman/HodgeDisproof"
+type: software
+abstract: >
+  Lean 4 types of a rational Hodge negation, classically equivalent,
+  both uninhabited. Integral Hodge is a different sentence.
+keywords:
+  - Hodge conjecture
+  - Lean 4
+version: "priority-2026-09-24"
+date-released: "2026-09-24"
