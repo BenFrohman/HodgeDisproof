@@ -10,38 +10,40 @@ Author: Benjamin Stanley Frohman
 Copyright © 2026 Benjamin Stanley Frohman  
 License: Apache-2.0
 
-```
-∃ X ∃ γ ∈ Hdg²(X),   γ ∉ im(cl_X)
-```
+Term B is the Σ-sentence
 
-Lean name: `RationalCounterexample`. No term in this repository.
+$$
+\exists X\ \exists\gamma\in\mathrm{Hdg}^2(X),\qquad
+\gamma\notin\operatorname{im}(\mathrm{cl}_X).
+$$
 
-## Findings card (2026-09-25)
+| Field | Type | Status |
+|---|---|---|
+| 1 | host \(X=V(F)\subset\mathbb{P}^5\) | shape written; not Term B alone |
+| 2 | \(\gamma_{\mathrm{bad}}\in H^4(X,\mathbb{Q})\cap H^{2,2}(X)\), outside \(\mathbb{Q}h^2+\mathbb{Q}[\Pi]\) | empty |
+| 3 | pairing with \(\gamma_{\mathrm{bad}}\notin\operatorname{im}(\mathrm{cl}_X)\) | empty |
 
-**Field 1 — host.** `X = V(F) ⊂ ℝ⁵`  
-A named smooth complex projective fourfold. Written as a shape. Not Term B by itself.
+## Field 3 pairing
 
-**Field 2 — class.**  
-`γ_bad ∈ H⁴(X, ℚ) ∩ H^{2,2}(X)` and `γ_bad ∉ ℚ h² + ℚ [Π]`.  
-Empty. `h^{2,2}` is a dimension. `[Π]` and `[S] = h² - [Π]` lie in the span Field 2 must leave.
+$$
+\mathrm{cl}_X:\mathrm{CH}^2(X)_{\mathbb{Q}}\to H^4(X,\mathbb{Q}).
+$$
 
-**Field 3 — pairing / miss.**  
-`γ_bad ∉ im(cl_X)`, where `cl_X : CH²(X)_ℚ → H⁴(X, ℚ)`.
+A witness is a class \(\alpha\in H^4(X,\mathbb{Q})\) such that
 
-A pairing witness is a class `α ∈ H⁴(X, ℚ)` such that
+$$
+\deg(\alpha\cup[Z])=0\quad\text{for every surface }Z\subset X,
+\qquad
+\deg(\alpha\cup\gamma_{\mathrm{bad}})\neq 0.
+$$
 
-```
-deg(α ∪ [Z]) = 0   for every surface Z ⊂ X,
-deg(α ∪ γ_bad) ≠ 0.
-```
+Equivalently \(\varphi(\beta)=\deg(\alpha\cup\beta)\) vanishes on \(\operatorname{im}(\mathrm{cl}_X)\) and not on \(\gamma_{\mathrm{bad}}\).
 
-Equivalently `φ(β) = deg(α ∪ β)` vanishes on `im(cl_X)` and not on `γ_bad`.  
-Empty. No `α`, no `γ_bad`, no nonzero value.
+## What does not fill Field 3 over \(\mathbb{Q}\)
 
-## What does not fill Field 3 over ℚ
+- Steenrod / Atiyah–Hirzebruch torsion: integral Hodge. After \(\otimes\mathbb{Q}\) it disappears.
+- Griffiths Abel–Jacobi: a different map.
+- Noether–Lefschetz vanishing: \(\Delta_{\mathrm{Hdg}}=0\), so Field 2 is empty for the opposite reason.
+- \([\Pi]\) and \([S]=h^2-[\Pi]\): they lie in \(\operatorname{im}(\mathrm{cl})\).
 
-- Steenrod squares / Atiyah–Hirzebruch torsion: integral IHC; dies after `⊗ ℚ`.
-- Griffiths Abel–Jacobi of a homologically trivial cycle: a different map.
-- Noether–Lefschetz vanishing: `Δ_Hdg = 0`, so Field 2 is empty for the opposite reason.
-
-Working backwards from the `∃` produces the *type* of Fields 2–3. It does not produce the class or the pairing.
+Working backwards from the \(\exists\) produces the type of Fields 2–3. It does not produce \(\gamma_{\mathrm{bad}}\) or \(\alpha\).
