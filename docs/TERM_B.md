@@ -14,47 +14,34 @@ License: Apache-2.0
 ∃ X ∃ γ ∈ Hdg²(X),   γ ∉ im(cl_X)
 ```
 
-Unfolded into three fields. Field 1 may be a named host. Fields 2–3 are empty here.
+Lean name: `RationalCounterexample`. No term in this repository.
 
-## Field 1
+## Findings card (2026-09-25)
 
-A named smooth complex projective fourfold. Example already written:
-`X = V(F) ⊂ ℝ⁵`. That host alone is not Term B.
+**Field 1 — host.** `X = V(F) ⊂ ℝ⁵`  
+A named smooth complex projective fourfold. Written as a shape. Not Term B by itself.
 
-## Field 2
+**Field 2 — class.**  
+`γ_bad ∈ H⁴(X, ℚ) ∩ H^{2,2}(X)` and `γ_bad ∉ ℚ h² + ℚ [Π]`.  
+Empty. `h^{2,2}` is a dimension. `[Π]` and `[S] = h² - [Π]` lie in the span Field 2 must leave.
 
-A single cohomology class on that host:
+**Field 3 — pairing / miss.**  
+`γ_bad ∉ im(cl_X)`, where `cl_X : CH²(X)_ℚ → H⁴(X, ℚ)`.
 
-```
-γ_bad ∈ H⁴(X, ℚ) ∩ H^{2,2}(X),
-γ_bad ∉ ℚ h² + ℚ [Π].
-```
-
-A period vector, a coefficient against a Hodge basis, or an explicit
-harmonic (2,2)-form would count. `h^{2,2}` is a dimension, not a class.
-`[Π]` and `[S] = h² - [Π]` lie in the span Field 2 must leave.
-
-## Field 3
-
-A proof about *that same class*:
+A pairing witness is a class `α ∈ H⁴(X, ℚ)` such that
 
 ```
-γ_bad ∉ im(cl_X),
-cl_X : CH²(X)_ℚ → H⁴(X, ℚ).
+deg(α ∪ [Z]) = 0   for every surface Z ⊂ X,
+deg(α ∪ γ_bad) ≠ 0.
 ```
 
-A pairing that vanishes on every algebraic class and does not vanish on
-`γ_bad` would count. The sentence “it is a miss” without that pairing is
-Field 2 wearing Field 3’s name.
+Equivalently `φ(β) = deg(α ∪ β)` vanishes on `im(cl_X)` and not on `γ_bad`.  
+Empty. No `α`, no `γ_bad`, no nonzero value.
 
 ## What does not fill Field 3 over ℚ
 
-- Steenrod squares / Atiyah–Hirzebruch torsion: that is the *integral*
-  obstruction. After `⊗ ℚ` it disappears.
-- Griffiths intermediate Jacobian of a homologically trivial cycle: a
-  different map (Abel–Jacobi), not `cl` on Hodge classes of type (2,2).
-- Noether–Lefschetz vanishing: that makes `Δ_Hdg = 0`, so Field 2 is
-  empty for the opposite reason.
+- Steenrod squares / Atiyah–Hirzebruch torsion: integral IHC; dies after `⊗ ℚ`.
+- Griffiths Abel–Jacobi of a homologically trivial cycle: a different map.
+- Noether–Lefschetz vanishing: `Δ_Hdg = 0`, so Field 2 is empty for the opposite reason.
 
-Working backwards from the `∃` produces the *type* of Fields 2–3.
-It does not produce `γ_bad` or the pairing.
+Working backwards from the `∃` produces the *type* of Fields 2–3. It does not produce the class or the pairing.
