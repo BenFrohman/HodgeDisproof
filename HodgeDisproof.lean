@@ -4,4 +4,3 @@ Released under Apache-2.0 license as described in the file LICENSE.
 Author: Benjamin Stanley Frohman
 -/
 import HodgeDisproof.Disproof.Type
-import HodgeDisproof.Disproof.Construct
