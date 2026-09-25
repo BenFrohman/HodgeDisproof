@@ -1,0 +1,5 @@
+name = "HodgeDisproof"
+defaultTargets = ["HodgeDisproof"]
+
+[[lean_lib]]
+name = "HodgeDisproof"
