@@ -1,15 +1,17 @@
 #!/usr/bin/env bash
-# Snapshot tags. They do not claim Clay solved or Clay false.
-# Author: Benjamin Stanley Frohman
+# Copyright (c) 2026 Benjamin Stanley Frohman
+# Licensed under Apache-2.0
+# Annotated snapshot tag. Does not claim Clay solved or Clay false.
 set -euo pipefail
 
-git tag -a clay-open -m "Snapshot authored by Benjamin Stanley Frohman.
-Rational Hodge remains an uninhabited Prop.
-RationalHodgeNegation and RationalCounterexample remain empty.
-No D_bad. No gamma_bad. Not a Clay prize claim."
+TAG=clay-open
+MSG="Snapshot by Benjamin Stanley Frohman. Rational Hodge open. No D_bad. No gamma_bad. Integral IHC false in the literature only."
 
-git tag -a type-ledger -m "Type ledger freeze. equivalence uses Classical.choice.
-Neither side of the iff is inhabited."
+if git rev-parse "$TAG" >/dev/null 2>&1; then
+  echo "tag $TAG already exists: $(git rev-parse $TAG)"
+  exit 0
+fi
 
-echo "Created local tags clay-open and type-ledger."
-echo "Push with: git push origin clay-open type-ledger"
+git tag -a "$TAG" -m "$MSG"
+echo "created annotated tag $TAG at $(git rev-parse HEAD)"
+echo "push with: git push origin $TAG"
