@@ -1,42 +1,66 @@
 # HodgeDisproof
 
-Author: Benjamin Stanley Frohman (@BenFrohman). Apache-2.0.
+**This repository does not contain a counterexample to the rational Hodge conjecture.**
 
-This repository records the **type** of a counterexample to the
-*rational* Hodge conjecture in codimension 2. It does not contain a
-counterexample. It is not a Clay close and not a Clay disproof.
+It records the *type* of such a counterexample, and nothing else.
 
-## Sentence being negated
+Author: Benjamin Stanley Frohman  
+License: Apache-2.0  
+Status: the Σ-type below is uninhabited.
+
+## The claim being negated
+
+Rational Hodge, schematic form (coefficients in ℚ):
 
 ```
-∀ D, ∀ γ ∈ Hdg²(D), ∃ z, cl z = γ     (coefficients in ℚ)
+∀ D, ∀ γ, ∃ z, cl(z) = γ
 ```
 
-## Disproof type (Σ-triple)
+`D` is a smooth complex projective fourfold (the first open geometric case is codimension 2).  
+`γ` is a rational Hodge class of type (2,2).  
+`z` is a rational algebraic cycle of codimension 2.  
+`cl` is the cycle class map.
+
+## Type of a disproof
+
+Negation pushes the quantifiers in:
+
+```
+∃ D, ∃ γ, ∀ z, cl(z) ≠ γ
+```
+
+In dependent type theory that is a nested Σ-type (a triple):
 
 ```
 Σ (D : Fourfold),
-Σ (γ : primitive rational Hodge class on D),
-  (∀ z : Cycle D, cl z = γ → False)
+Σ (γ : HodgeClass D),
+(∀ z : Cycle D, cl z = γ → False)
 ```
 
-Three slots, all empty here:
+The three slots are:
 
-1. `D_bad` — a named smooth complex projective fourfold
-2. `γ_bad` — a named class in `H⁴ ∩ H^{2,2}` that is primitive
-3. a function sending any hypothetical cycle-match to `False`
+| Slot | Object | Status here |
+|---|---|---|
+| 1 | a concrete fourfold `D_bad` | empty |
+| 2 | a concrete class `γ_bad` that is Hodge | empty |
+| 3 | a function sending any cycle and any proof `cl z = γ_bad` to `False` | empty |
+
+No file in this repository fills any slot.
 
 ## Integral vs rational
 
-| Formulation | Coefficients | This type |
+| Formulation | Coefficients | Disproof type |
 |---|---|---|
-| integral Hodge | ℤ | inhabited in the literature (Atiyah–Hirzebruch 1961; Kollár) |
-| rational Hodge | ℚ | uninhabited — Millennium problem |
+| integral Hodge | ℤ | inhabited in the literature (Atiyah–Hirzebruch 1961; Kollár 1990) |
+| rational Hodge | ℚ | uninhabited; Millennium problem |
 
-Do not import an integral torsion class as `γ_bad` for the rational type.
+See `docs/INTEGRAL.md`. An integral torsion class is **not** a term of the rational disproof type. Do not paste Atiyah–Hirzebruch or Kollár into slot 1–2 of the table above.
 
-## What this repo does not contain
+## What this repo is not
 
-- a term of the Σ-type above
-- `sorry`, `True.intro`, or an axiom filling the triple
-- assumptions imported from other projects unless added later by the author
+- not a proof that Hodge is false
+- not a Clay close
+- not a constructor `HodgeClass → Cycle`
+- not imported from any other project
+
+Lean schema (uninhabited): `Disproof/Type.lean`.
