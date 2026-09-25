@@ -1,53 +1,64 @@
-# Noether–Lefschetz vanishing is not a miss
+<!--
+Copyright (c) 2026 Benjamin Stanley Frohman. All rights reserved.
+Released under Apache-2.0 license as described in the file LICENSE.
+Author: Benjamin Stanley Frohman
+-->
+
+# Noether–Lefschetz vanishing and the miss locus
 
 Author: Benjamin Stanley Frohman  
-Copyright (c) 2026 Benjamin Stanley Frohman  
+Copyright © 2026 Benjamin Stanley Frohman  
 License: Apache-2.0
 
-## Very general high-degree fourfold in ℝ⁵
+## Very general high-degree fourfolds
 
-Lefschetz hyperplane plus monodromy give
+On a very general hypersurface fourfold of high degree in \(\mathbb{P}^5\),
+Lefschetz hyperplane plus monodromy imply
 
-```
-H⁴(X, ℚ) ∩ H^{2,2}(X) = ℚ ⟨ω²⟩.
-```
+$$
+H^4(X,\mathbb{Q})\cap H^{2,2}(X)=\mathbb{Q}\langle\omega^2\rangle.
+$$
 
 The primitive piece vanishes:
 
-```
-Δ_Hdg(D) := P⁴(X, ℚ) ∩ H^{2,2}(X) = 0.
-```
+$$
+\Delta_{\mathrm{Hdg}}(D)=P^4(X,\mathbb{Q})\cap H^{2,2}(X)=0.
+$$
 
-Then Δ_miss(D) = ∅ automatically: there is no extra rational Hodge class for cl to miss.
-L(D) holds because the only remaining (2,2) class is ω², which is algebraic.
+The only rational Hodge class of type \((2,2)\) is a power of the hyperplane
+class, which is algebraic. Hodge holds on that host because there is nothing
+extra to algebraize.
 
-h^{2,2} may still be large. That is a complex Hodge number, not a count of rational Hodge classes. Genericity kills extra classes in H⁴(X, ℚ), not the complex summand H^{2,2}.
+The Hodge number \(h^{2,2}\) can still be large. That counts complex forms of
+type \((2,2)\), not rational Hodge classes. Genericity kills extra classes in
+\(H^4(X,\mathbb{Q})\), not the complex summand \(H^{2,2}\).
 
-This host cannot be D_bad. A Clay disproof needs Δ_Hdg ≠ 0 and a class in that space outside im(cl).
+That is Noether–Lefschetz vanishing of extra classes. It is the opposite of a
+miss: the remaining Clay piece is empty, so there is nothing for
+\(\mathrm{cl}_X\) to miss.
 
-## Localized definition on a polarized fourfold D
+## Structural definition for a polarized fourfold \(D\)
 
-```
-L(D)  : every primitive rational (2,2)-class on D is algebraic.
-Δ_miss(D) := Δ_Hdg(D) \ im(cl_X)
-```
+- \(L(D)\): every primitive rational \((2,2)\)-class on \(D\) is algebraic.
+- \(\Delta_{\mathrm{miss}}(D)=\Delta_{\mathrm{Hdg}}(D)\setminus\operatorname{im}(\mathrm{cl}_X)\).
 
-By definition,
+$$
+L(D)\;\Longleftrightarrow\;\Delta_{\mathrm{miss}}(D)=\emptyset.
+$$
 
-```
-L(D)  ⟷  Δ_miss(D) = ∅.
-```
+This is the definition of Hodge on the primitive summand, plus Lefschetz for
+\(\omega^2\). It is not a global template that collapses under NL vanishing.
+When \(\Delta_{\mathrm{Hdg}}(D)=0\) both sides are true for a trivial reason.
 
-This is not a global template that collapses under NL. When Δ_Hdg = 0 both sides are true for the trivial reason. When Δ_Hdg ≠ 0, L(D) is the claim that those extra classes still lie in im(cl).
+A Clay disproof is a *special* fourfold with
 
-## What a rational disproof would be
+$$
+\Delta_{\mathrm{Hdg}}(D_{\mathrm{bad}})\neq 0
+\qquad\text{and}\qquad
+\Delta_{\mathrm{miss}}(D_{\mathrm{bad}})\neq\emptyset,
+$$
 
-Pick D with both sides false:
+hence \(\neg L(D_{\mathrm{bad}})\). A very general high-degree fourfold in
+\(\mathbb{P}^5\) cannot be that host.
 
-```
-Δ_miss(D_bad) ≠ ∅   and therefore   ¬ L(D_bad).
-```
-
-That requires Δ_Hdg ≠ 0 first. Then produce γ_bad in that space and p : ∀ z, cl z = γ_bad → False.
-
-This file does not produce those three objects.
+This file does not name such a \(D_{\mathrm{bad}}\).
