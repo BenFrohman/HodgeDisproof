@@ -8,6 +8,9 @@ Asserted:
 2. The constructive negation of rational Hodge (`RationalHodge → False`) has no term in this repository.
 3. The existential counterexample type (`∃ D γ, ∀ z, cl z = γ → False`) has no term in this repository.
 4. `L(D)` for a variable fourfold is not asserted here.
+5. `classical_equiv` : `RationalHodgeNegation ↔ RationalCounterexample`.
+   Constructive `→`. Classical `←` via `Classical.not_forall` twice.
+   `#print axioms` is `Classical.choice`. Relates two empty types. Does not name `D_bad`.
 
 Not asserted:
 
