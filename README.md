@@ -1,66 +1,40 @@
 # HodgeDisproof
 
-**This repository does not contain a counterexample to the rational Hodge conjecture.**
-
-It records the *type* of such a counterexample, and nothing else.
-
 Author: Benjamin Stanley Frohman  
-License: Apache-2.0  
-Status: the Σ-type below is uninhabited.
+License: Apache-2.0
 
-## The claim being negated
+This repository asserts findings only where a term exists.  
+It does not assert that rational Hodge is true.  
+It does not assert that rational Hodge is false.
 
-Rational Hodge, schematic form (coefficients in ℚ):
+## Two different types for “Hodge is false”
 
-```
-∀ D, ∀ γ, ∃ z, cl(z) = γ
-```
-
-`D` is a smooth complex projective fourfold (the first open geometric case is codimension 2).  
-`γ` is a rational Hodge class of type (2,2).  
-`z` is a rational algebraic cycle of codimension 2.  
-`cl` is the cycle class map.
-
-## Type of a disproof
-
-Negation pushes the quantifiers in:
+Let `RationalHodge` be
 
 ```
-∃ D, ∃ γ, ∀ z, cl(z) ≠ γ
+∀ D, ∀ γ, ∃ z, cl z = γ
 ```
 
-In dependent type theory that is a nested Σ-type (a triple):
+| Name | Type | What a term is | Status (rational, ℚ) |
+|---|---|---|---|
+| constructive negation | `RationalHodge → False` | a function that takes any purported proof of Hodge and returns `False` | empty |
+| existential counterexample | `∃ D, ∃ γ, ∀ z, cl z = γ → False` | a triple `(D_bad, γ_bad, contradiction)` | empty |
 
-```
-Σ (D : Fourfold),
-Σ (γ : HodgeClass D),
-(∀ z : Cycle D, cl z = γ → False)
-```
+These are classically equivalent (after `Not.not_forall` / `not_exists`). They are not the same Lean type. A proof assistant will not accept a triple where it expects a function unless a classical axiom is used. This repo records both types and inhabits neither for rational Hodge.
 
-The three slots are:
+## Findings that *are* asserted
 
-| Slot | Object | Status here |
+| Sentence | Direction | Term |
 |---|---|---|
-| 1 | a concrete fourfold `D_bad` | empty |
-| 2 | a concrete class `γ_bad` that is Hodge | empty |
-| 3 | a function sending any cycle and any proof `cl z = γ_bad` to `False` | empty |
+| Integral Hodge is false | negation, literature | Atiyah–Hirzebruch 1961 (torsion); Kollár 1990 (non-torsion infinite order). Documented in `docs/INTEGRAL.md`. Not a Lean construction of those varieties. |
+| Rational Hodge | neither | no term of `RationalHodge`, no term of `RationalHodge → False`, no triple |
+| `L(D)` on a named fourfold | positive, finite list | lives in the HODGE library as `CycleSection`; not reconstructed here |
 
-No file in this repository fills any slot.
+`Δ_miss(D_bad) ≠ ∅` is the same geometric content as the triple. No such `D_bad` is named here.
 
-## Integral vs rational
+## Files
 
-| Formulation | Coefficients | Disproof type |
-|---|---|---|
-| integral Hodge | ℤ | inhabited in the literature (Atiyah–Hirzebruch 1961; Kollár 1990) |
-| rational Hodge | ℚ | uninhabited; Millennium problem |
-
-See `docs/INTEGRAL.md`. An integral torsion class is **not** a term of the rational disproof type. Do not paste Atiyah–Hirzebruch or Kollár into slot 1–2 of the table above.
-
-## What this repo is not
-
-- not a proof that Hodge is false
-- not a Clay close
-- not a constructor `HodgeClass → Cycle`
-- not imported from any other project
-
-Lean schema (uninhabited): `Disproof/Type.lean`.
+- `Disproof/Type.lean` — the two types, no theorems inhabiting them
+- `docs/TYPE.md` — the constructive vs classical split
+- `docs/INTEGRAL.md` — integral finding, with citations
+- `docs/FINDINGS.md` — the assertion table

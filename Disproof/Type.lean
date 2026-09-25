@@ -3,12 +3,12 @@ Copyright (c) 2026 Benjamin Stanley Frohman. All rights reserved.
 Released under Apache-2.0 license as described in the file LICENSE.
 Author: Benjamin Stanley Frohman
 
-Schema only. No geometry is imported. No term is supplied.
+Two types for a rational disproof. Neither is inhabited.
 -/
 
 namespace HodgeDisproof
 
-/-- Placeholder sorts. Not a moduli space and not a named fourfold. -/
+/-- Placeholder sorts. Not a named fourfold. -/
 opaque Fourfold : Type
 
 opaque HodgeClass (D : Fourfold) : Type
@@ -17,23 +17,26 @@ opaque Cycle (D : Fourfold) : Type
 
 opaque cl {D : Fourfold} : Cycle D → HodgeClass D
 
-/-- Rational Hodge, schematic. Coefficients implicit in the sorts. -/
+/-- Rational Hodge (schematic). -/
 def RationalHodge : Prop :=
   ∀ D : Fourfold, ∀ γ : HodgeClass D, ∃ z : Cycle D, cl z = γ
 
-/--
-Type of a rational disproof: a fourfold, a Hodge class, and a
-contradiction from any cycle reconstruction.
+/-- Constructive negation: a function, not a triple. -/
+def RationalHodgeNegation : Prop :=
+  RationalHodge → False
 
-This definition is a type. This file does not inhabit it.
--/
-def RationalDisproofType : Prop :=
+/-- Existential counterexample: a triple. Classically equivalent to
+`RationalHodgeNegation`, not definitionally the same. -/
+def RationalCounterexample : Prop :=
   ∃ D : Fourfold, ∃ γ : HodgeClass D, ∀ z : Cycle D, cl z = γ → False
 
 /-
-No `theorem rational_hodge_false : RationalDisproofType`.
-No `theorem rational_hodge : RationalHodge`.
-No `sorry`.
+Findings encoded as comments, not fake theorems:
+
+* No term of `RationalHodge`.
+* No term of `RationalHodgeNegation`.
+* No term of `RationalCounterexample`.
+* Integral Hodge is false in the literature; that term is not this file.
 -/
 
 end HodgeDisproof

@@ -1,20 +1,25 @@
-# Integral Hodge is a different type
+# Finding: integral Hodge is false
 
 Author: Benjamin Stanley Frohman
 
-The integral Hodge conjecture asks that every class in
+## Sentence
 
-```
-H^{2k}(X, ℤ) ∩ H^{k,k}(X)
-```
+Every class in `H^{2k}(X, ℤ) ∩ H^{k,k}(X)` is the class of an algebraic cycle with ℤ coefficients.
 
-be the class of an algebraic cycle with ℤ coefficients.
+## Direction asserted
 
-That statement is false. Known inhabitants of *its* disproof type:
+This sentence is false.
 
-- Atiyah–Hirzebruch, *Analytic cycles on complex manifolds*, Topology 1 (1961), 25–45. Torsion Hodge classes that are not algebraic.
-- Kollár, 1990. Non-torsion integral Hodge classes some multiple of which is algebraic, but the class itself is not.
+## Terms in the literature (not constructed in Lean here)
 
-Those terms inhabit the *integral* disproof type. They do not inhabit the rational disproof type recorded in `docs/TYPE.md`.
+- Atiyah, M. F.; Hirzebruch, F. *Analytic cycles on complex manifolds.* Topology 1 (1961), 25–45. Torsion Hodge classes that are not algebraic.
+- Kollár, J. (1990). Non-torsion integral Hodge classes of infinite order that are not algebraic (some multiple is algebraic).
 
-Reason: a torsion class becomes zero after tensoring with ℚ. A class that becomes algebraic after multiplying by an integer is algebraic over ℚ. Neither fills `(D_bad, γ_bad)` for rational Hodge.
+Those objects inhabit the *integral* counterexample type.
+
+They do not inhabit either rational type in `docs/TYPE.md`:
+
+- torsion dies after `⊗ ℚ`
+- a class that becomes algebraic after multiplying by an integer is algebraic over ℚ
+
+No Lean term of an integral Godeaux–Serre variety is supplied in `Disproof/Type.lean`. The finding is the literature term, recorded as a citation, not as `sorry`.
