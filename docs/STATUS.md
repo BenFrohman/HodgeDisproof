@@ -12,22 +12,27 @@ License: Apache-2.0
 
 ## Finished: the type of Term B
 
-```
-⟨X, γ_bad, p⟩
-p : ∀ z, cl z = γ → False
-```
+$$
+\langle X,\;\gamma_{\mathrm{bad}},\;p\rangle
+\qquad
+p:\forall z,\;\mathrm{cl}\,z=\gamma\to\mathrm{False}
+$$
 
-Lean: `RationalCounterexample` in `Disproof/Type.lean`.
-Pairing constructor of `p`: `missWitness_of_pairing` in `Disproof/Pairing.lean`.
+| Field | Call it | Lean slot | Status |
+|---|---|---|---|
+| 1 | the host | `D` | shape \(X=V(F)\subset\mathbb{P}^5\) |
+| 2 | the class \(\gamma_{\mathrm{bad}}\) | `γ` | empty |
+| 3 | the miss witness \(p\) | `MissWitness γ` | empty |
 
-## Not finished: a term of that type
+Constructor of \(p\) from a pairing: `missWitness_of_pairing` in `Disproof/Pairing.lean`.
+That lemma is not a term of `RationalCounterexample`.
 
-| Field | Name | Status |
-|---|---|---|
-| 1 | host `D` / `X = V(F) ⊂ P^5` | shape written |
-| 2 | class `γ_bad` | empty |
-| 3 | miss witness `p` | empty |
+## Not finished
 
-Pasting the Σ-sentence names the proposition. It does not inhabit it.
+- no \(\gamma_{\mathrm{bad}}\)
+- no \(\alpha\), no \(\varphi\) with \(\varphi(\mathrm{cl}\,z)=0\) and \(\varphi(\gamma)\neq 0\)
+- no term of `RationalHodgeNegation`
+- no term of `RationalCounterexample`
+- Clay tag is `clay-open`, not `clay-closed`
 
-Tag: `clay-open`. Not `clay-closed`. Not a Clay prize claim.
+Local HODGE drafts under `/home/workdir/artifacts` are named-host material for BenFrohman/HODGE. They are not a Term B witness and are not copied here.

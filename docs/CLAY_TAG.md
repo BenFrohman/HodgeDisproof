@@ -7,36 +7,11 @@ Author: Benjamin Stanley Frohman
 # Clay tag
 
 Author: Benjamin Stanley Frohman  
-Copyright © 2026 Benjamin Stanley Frohman  
 License: Apache-2.0
 
-## Name
+Intended tag: `clay-open`.
 
-```
-clay-open
-```
+Meaning: the *type* of a rational Hodge counterexample is written and frozen.
+Meaning it does not have: Fields 2–3 inhabited; Clay Millennium disproof; prize claim.
 
-Not `clay-solved`. Not `clay-false`.
-
-## Meaning
-
-Annotated snapshot of this repository at the moment the two rational-disproof
-types and the Noether–Lefschetz miss-locus notes were recorded.
-
-- `RationalHodge` — uninhabited
-- `RationalHodgeNegation` — uninhabited
-- `RationalCounterexample` — uninhabited
-- integral Hodge — false in the literature, different type
-- `L(D) ⇔ Δ_miss(D) = ∅` — definition, not a constructor
-
-This tag does **not** claim the Clay Millennium Prize and does **not** claim a
-rational counterexample.
-
-## Command
-
-```bash
-git tag -a clay-open -m "Snapshot by Benjamin Stanley Frohman. Rational Hodge open. No D_bad. No γ_bad. Integral IHC false in the literature only."
-git push origin clay-open
-```
-
-See `scripts/tag-clay-open.sh`.
+Do not create `clay-closed`.
