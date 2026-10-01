@@ -29,7 +29,7 @@ def zeroCycle : Datum Rat Rat Rat where
 theorem zeroCycle_not_hodge : ¬ zeroCycle.HodgeConjecture := by
   intro h
   have : (1 : Rat) ∈ zeroCycle.hodgeClasses := by
-    change LinearMap.ker (0 : Rat →ₖ[Rat] Rat) 1
+    change LinearMap.ker (0 : Rat →ₗ[Rat] Rat) 1
     simp
   have h1 := h this
   rcases h1 with ⟨z, hz⟩
@@ -40,7 +40,7 @@ Packaging:
 
 ```
 ⟨ zeroCycle, 1, p ⟩
-p : ∀ z : Rat, (0 : Rat →ₖ[Rat] Rat) z = 1 → False
+p : ∀ z : Rat, (0 : Rat →ₗ[Rat] Rat) z = 1 → False
 ```
 
 `zeroCycle` has no `IsVariety` instance. Not a fourfold.
