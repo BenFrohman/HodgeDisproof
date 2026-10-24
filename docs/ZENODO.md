@@ -24,7 +24,7 @@ Do not retitle the deposit “A Disproof of the Hodge Conjecture” or “Clay s
 
 ## After a DOI is issued
 
-Paste the DOI into `CITATION.cff` as `doi:` and into this file.
+Zenodo DOI: `10.5281/zenodo.23627612` (https://doi.org/10.5281/zenodo.23627612).
 
 ## Visibility
 

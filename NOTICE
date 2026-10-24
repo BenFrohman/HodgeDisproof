@@ -1,7 +1,11 @@
 HodgeDisproof
-Copyright (c) 2026 Benjamin Stanley Frohman
+Copyright 2026 Benjamin Stanley Frohman (ORCID: https://orcid.org/0009-0006-7068-3718)
 
-Licensed under the Apache License, Version 2.0.
-See LICENSE.
+Author: Benjamin Stanley Frohman <frohmanbenjamin@gmail.com>
+ORCID: https://orcid.org/0009-0006-7068-3718
+GitHub: https://github.com/BenFrohman/HodgeDisproof
+Zenodo DOI: https://doi.org/10.5281/zenodo.23627612
 
-Author: Benjamin Stanley Frohman
+This work includes software, formal specifications, and mathematical manuscripts
+developed by Benjamin Stanley Frohman and licensed under the Apache License,
+Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0). See LICENSE.
