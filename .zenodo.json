@@ -4,7 +4,7 @@
   "publication_type": "preprint",
   "publication_date": "2026-09-24",
   "version": "1.0.0",
-  "description": "Records the two Lean 4 types of a rational Hodge negation (RationalHodgeNegation and RationalCounterexample), proves they are classically equivalent (counterexample_to_negation constructively without extra axioms, and negation_to_counterexample via Classical.choice), and records that both types are uninhabited in this repository. Separates the false integral Hodge conjecture (Atiyah–Hirzebruch 1961 torsion counterexamples; Kollár 1990 infinite-order integral counterexamples) from the open rational Clay Millennium statement. Does not produce a counterexample fourfold or class, and does not claim the Clay Millennium Prize.",
+  "description": "Records the two Lean 4 types of a rational Hodge negation (RationalHodgeNegation and RationalCounterexample), proves they are classically equivalent (counterexample_to_negation constructively without extra axioms, and negation_to_counterexample via Classical.choice), and records that both types are uninhabited in this repository. Separates the false integral Hodge conjecture (Atiyah\u2013Hirzebruch 1961 torsion counterexamples; Koll\u00e1r 1990 infinite-order integral counterexamples) from the open rational Clay Millennium statement. Does not produce a counterexample fourfold or class, and does not claim the Clay Millennium Prize.",
   "creators": [
     {
       "name": "Frohman, Benjamin Stanley",
@@ -27,5 +27,6 @@
       "relation": "isSupplementTo",
       "scheme": "url"
     }
-  ]
+  ],
+  "doi": "10.5281/zenodo.23627612"
 }

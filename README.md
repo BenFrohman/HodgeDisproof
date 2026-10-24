@@ -1,6 +1,9 @@
 # HodgeDisproof
 
-**Author:** Benjamin Stanley Frohman  
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23627612.svg)](https://doi.org/10.5281/zenodo.23627612)
+
+**Author:** Benjamin Stanley Frohman (ORCID: [0009-0006-7068-3718](https://orcid.org/0009-0006-7068-3718))  
+**Zenodo DOI:** [`10.5281/zenodo.23627612`](https://doi.org/10.5281/zenodo.23627612)  
 **Copyright:** © 2026 Benjamin Stanley Frohman  
 **License:** Apache License 2.0 (`LICENSE`, `NOTICE`)
 
