@@ -1,0 +1,104 @@
+% Copyright (c) 2026 Benjamin Stanley Frohman. All rights reserved.
+% Released under Apache 2.0 license as described in the file LICENSE.
+% Authors: Benjamin Stanley Frohman
+\documentclass[11pt]{amsart}
+\usepackage{amsmath,amssymb,amsthm,booktabs,hyperref}
+\usepackage[margin=1.15in]{geometry}
+
+\title{The Type of a Rational Hodge Counterexample}
+\author{Benjamin Stanley Frohman}
+\address{Independent Researcher \\ ORCID: 0009-0006-7068-3718}
+\email{frohmanbenjamin@gmail.com}
+\date{September 24, 2026}
+
+\begin{document}
+
+\begin{abstract}
+The Clay Millennium statement of the Hodge conjecture is the \emph{rational} sentence
+\[
+  \forall D\,\forall\gamma\,\exists z,\quad \mathrm{cl}(z)=\gamma,
+\]
+with coefficients in $\mathbb{Q}$. This note records the two Lean~4 types of its negation, proves they are classically equivalent, and records that both types are uninhabited in the accompanying formalization (\texttt{BenFrohman/HodgeDisproof}). It does not produce a fourfold $D_{\mathrm{bad}}$ or a class $\gamma_{\mathrm{bad}}$. The integral Hodge conjecture is a different sentence and is already false.
+\end{abstract}
+
+\maketitle
+
+\section{The Sentence}
+
+Let $D$ range over smooth complex projective fourfolds and let $\gamma$ range over rational Hodge classes of type $(2,2)$:
+\[
+  \gamma\in H^4(D,\mathbb{Q})\cap H^{2,2}(D).
+\]
+Let $z$ range over rational algebraic cycles of codimension two and let $\mathrm{cl}$ be the cycle class map. The easy arrow---every such $\mathrm{cl}(z)$ is Hodge---is a theorem. The Clay problem is the converse, expressed by the universal sentence above.
+
+Hodge's original integral sentence, with $\mathbb{Z}$ in place of $\mathbb{Q}$, is false: Atiyah--Hirzebruch (1961) produced torsion classes that are not algebraic; Koll\'ar (1990) produced infinite-order integral classes that are not algebraic. Tensoring with $\mathbb{Q}$ kills torsion and identifies classes that differ by an integer multiple. Those terms do not inhabit the rational negation.
+
+\section{Two Types of Negation}
+
+In dependent type theory the constructive negation of a universal sentence is a function type, whereas a counterexample witness is a dependent pair (sigma/existential triple).
+
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Lean Name} & \textbf{Type} & \textbf{Inhabitant} \\
+\midrule
+\texttt{RationalHodgeNegation} & $(\forall D\,\forall\gamma\,\exists z,\,\mathrm{cl}\,z=\gamma)\to\mathrm{False}$ & a function \\
+\texttt{RationalCounterexample} & $\exists D\,\exists\gamma,\,\forall z,\,\mathrm{cl}\,z=\gamma\to\mathrm{False}$ & a triple $\langle D,\gamma,p\rangle$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Lean treats these as distinct types; the kernel will not accept a triple where it expects a function.
+
+\paragraph{\textbf{Constructive map (\texttt{counterexample\_to\_negation}).}}
+From a triple $\langle D_{\mathrm{bad}},\gamma_{\mathrm{bad}},p\rangle$ and a hypothetical proof $h$ of the universal sentence, apply $h$ at that host and class to obtain a cycle $z$, and feed $z$ to $p$ to obtain $\mathrm{False}$. This direction requires no classical axiom.
+
+\paragraph{\textbf{Classical map (\texttt{negation\_to\_counterexample}).}}
+From a function sending every purported proof of the universal sentence to $\mathrm{False}$, one does not constructively compute $D_{\mathrm{bad}}$. Extracting the existential witness uses \texttt{Classical.not\_forall}. The converse therefore depends on \texttt{Classical.choice}.
+
+The kernel-checked lemmas in \texttt{Disproof/Type.lean} are \texttt{counterexample\_to\_negation}, \texttt{negation\_to\_counterexample}, and \texttt{equivalence}. Running \texttt{\#print axioms equivalence} reports \texttt{[propext, Classical.choice, Quot.sound]}. That theorem relates two types without constructing an inhabitant of either.
+
+\section{The Miss Locus}
+
+Write $L(D)$ for the rational Hodge conjecture in codimension two on a polarized fourfold $D$, $\Delta_{\mathrm{Hdg}}(D)$ for the primitive rational $(2,2)$ classes, and
+\[
+  \Delta_{\mathrm{miss}}(D)=\Delta_{\mathrm{Hdg}}(D)\setminus\operatorname{im}(\mathrm{cl}_D).
+\]
+By definition,
+\[
+  L(D)\;\Longleftrightarrow\;\Delta_{\mathrm{miss}}(D)=\emptyset.
+\]
+On a very general hypersurface fourfold of degree $d\ge 6$ in $\mathbb{P}^5$, the Lefschetz hyperplane theorem together with monodromy gives Noether--Lefschetz vanishing
+\[
+  H^4(X,\mathbb{Q})\cap H^{2,2}(X)=\mathbb{Q}\langle\omega^2\rangle,
+\]
+hence $\Delta_{\mathrm{Hdg}}(D)=0$ and $\Delta_{\mathrm{miss}}(D)=\emptyset$. The rational Hodge conjecture holds there because no primitive rational class remains to algebraize. A large complex Hodge number $h^{2,2}$ counts complex harmonic forms of type $(2,2)$, not rational Hodge classes.
+
+A term of \texttt{RationalCounterexample} would require a \emph{special} fourfold with $\Delta_{\mathrm{Hdg}}\neq 0$ and $\Delta_{\mathrm{miss}}\neq\emptyset$. That host is not constructed in this note.
+
+\section{Scope: What Is Asserted and What Is Not Asserted}
+
+\begin{enumerate}
+  \item The integral Hodge conjecture is false (classical literature counterexamples cited below).
+  \item The two rational-negation types \texttt{RationalHodgeNegation} and \texttt{RationalCounterexample} are classically equivalent in Lean~4 with zero \texttt{sorry}.
+  \item The constructive direction \texttt{counterexample\_to\_negation} uses no classical axiom.
+  \item Neither rational-negation type is inhabited in this repository, nor is the universal rational sentence itself.
+  \item This note does not claim the Clay Millennium Prize, and does not claim that the rational Hodge conjecture is either true or false.
+\end{enumerate}
+
+\begin{thebibliography}{9}
+\bibitem{AH61}
+M.~F. Atiyah and F.~Hirzebruch, \emph{Analytic cycles on complex manifolds}, Topology \textbf{1} (1961), 25--45.
+
+\bibitem{Kol90}
+J.~Koll\'ar, \emph{Trento examples}, in \emph{Classification of irregular varieties} (Trento, 1990), Lecture Notes in Math., vol.~1515, Springer, 1992, pp.~134--139.
+
+\bibitem{Voi02}
+C.~Voisin, \emph{Hodge Theory and Complex Algebraic Geometry I, II}, Cambridge Studies in Advanced Mathematics, Cambridge University Press, 2002.
+
+\bibitem{Del06}
+P.~Deligne, \emph{The Hodge Conjecture}, Clay Mathematics Institute Millennium Prize Problem description, 2000/2006.
+\end{thebibliography}
+
+\end{document}

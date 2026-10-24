@@ -3,7 +3,7 @@ title: "The Type of a Rational Hodge Counterexample"
 author:
   - name: Benjamin Stanley Frohman
     affiliation: Independent researcher
-    orcid: ""
+    orcid: "0009-0006-7068-3718"
 date: 2026-09-24
 license: Apache-2.0
 keywords:
@@ -21,7 +21,7 @@ status: type ledger; rational counterexample uninhabited
 
 # The Type of a Rational Hodge Counterexample
 
-**Benjamin Stanley Frohman**  
+**Benjamin Stanley Frohman** (ORCID: [0009-0006-7068-3718](https://orcid.org/0009-0006-7068-3718))  
 Copyright © 2026 Benjamin Stanley Frohman  
 License: Apache License 2.0  
 Repository: https://github.com/BenFrohman/HodgeDisproof
