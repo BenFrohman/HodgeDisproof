@@ -8,43 +8,40 @@ Classical equivalence of the two disproof types.
 Neither type is inhabited.
 -/
 
+universe u
+
 namespace HodgeDisproof
 
-/-- Placeholder sorts. Not a named fourfold. -/
-opaque Fourfold : Type
-
-opaque HodgeClass (D : Fourfold) : Type
-
-opaque Cycle (D : Fourfold) : Type
-
-opaque cl {D : Fourfold} : Cycle D → HodgeClass D
+-- Placeholder sorts, taken as parameters. Not a named fourfold.
+variable {Fourfold : Type} {HodgeClass : Fourfold → Type} {Cycle : Fourfold → Type}
+  (cl : ∀ D : Fourfold, Cycle D → HodgeClass D)
 
 /-- Rational Hodge (schematic). -/
 def RationalHodge : Prop :=
-  ∀ D : Fourfold, ∀ γ : HodgeClass D, ∃ z : Cycle D, cl z = γ
+  ∀ D : Fourfold, ∀ γ : HodgeClass D, ∃ z : Cycle D, cl _ z = γ
 
 /-- Constructive negation: a function, not a triple. -/
 def RationalHodgeNegation : Prop :=
-  RationalHodge → False
+  RationalHodge cl → False
 
 /-- Existential counterexample: a triple. -/
 def RationalCounterexample : Prop :=
-  ∃ D : Fourfold, ∃ γ : HodgeClass D, ∀ z : Cycle D, cl z = γ → False
+  ∃ D : Fourfold, ∃ γ : HodgeClass D, ∀ z : Cycle D, cl _ z = γ → False
 
 /-- Constructive. `¬∃` is already `∀¬`. No classical axiom. -/
-theorem not_exists_forall_not {α : Sort*} {p : α → Prop} :
+theorem not_exists_forall_not {α : Sort u} {p : α → Prop} :
     (¬ ∃ x, p x) → ∀ x, ¬ p x := by
   intro h x hx
   exact h ⟨x, hx⟩
 
 /-- Classical. `¬∀` yields `∃¬`. This is the only classical step. -/
-theorem not_forall_exists_not {α : Sort*} {p : α → Prop} :
+theorem not_forall_exists_not {α : Sort u} {p : α → Prop} :
     (¬ ∀ x, p x) → ∃ x, ¬ p x :=
-  (Classical.not_forall).mp
+  Classical.not_forall.mp
 
 /-- Constructive: a triple yields a function. -/
 theorem counterexample_to_negation :
-    RationalCounterexample → RationalHodgeNegation := by
+    RationalCounterexample cl → RationalHodgeNegation cl := by
   intro h hHodge
   obtain ⟨D, γ, p⟩ := h
   obtain ⟨z, hz⟩ := hHodge D γ
@@ -52,9 +49,9 @@ theorem counterexample_to_negation :
 
 /-- Classical converse: a function yields a triple. -/
 theorem negation_to_counterexample :
-    RationalHodgeNegation → RationalCounterexample := by
+    RationalHodgeNegation cl → RationalCounterexample cl := by
   intro hNeg
-  have h1 : ¬ ∀ D : Fourfold, ∀ γ : HodgeClass D, ∃ z : Cycle D, cl z = γ := hNeg
+  have h1 : ¬ ∀ D : Fourfold, ∀ γ : HodgeClass D, ∃ z : Cycle D, cl _ z = γ := hNeg
   obtain ⟨D, hD⟩ := not_forall_exists_not h1
   obtain ⟨γ, hγ⟩ := not_forall_exists_not hD
   refine ⟨D, γ, ?_⟩
@@ -62,8 +59,8 @@ theorem negation_to_counterexample :
 
 /-- The two disproof types are classically equivalent. -/
 theorem equivalence :
-    RationalCounterexample ↔ RationalHodgeNegation :=
-  ⟨counterexample_to_negation, negation_to_counterexample⟩
+    RationalCounterexample cl ↔ RationalHodgeNegation cl :=
+  ⟨counterexample_to_negation cl, negation_to_counterexample cl⟩
 
 /-
 #print axioms not_exists_forall_not          -- (none)
