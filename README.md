@@ -1,5 +1,7 @@
 # HodgeDisproof
 
+[![Lean certificate](https://github.com/BenFrohman/HodgeDisproof/actions/workflows/certify.yml/badge.svg)](https://github.com/BenFrohman/HodgeDisproof/actions/workflows/certify.yml)
+
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23627612.svg)](https://doi.org/10.5281/zenodo.23627612)
 
 **Author:** Benjamin Stanley Frohman (ORCID: [0009-0006-7068-3718](https://orcid.org/0009-0006-7068-3718))  
