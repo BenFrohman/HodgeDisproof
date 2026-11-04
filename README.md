@@ -35,3 +35,8 @@ See `docs/PRIORITY_TAG.md` and `docs/CLAY_TAG.md`.
 ## License and citation
 
 Apache-2.0. Cite `CITATION.cff`. Do not cite this repository as a proof that Hodge is false.
+
+## Zenodo archive
+
+- [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23627611.svg)](https://doi.org/10.5281/zenodo.23627611) The Type of a Rational Hodge Counterexample — all versions: [10.5281/zenodo.23627611](https://doi.org/10.5281/zenodo.23627611); latest version: [10.5281/zenodo.23627612](https://doi.org/10.5281/zenodo.23627612)
+- [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23867471.svg)](https://doi.org/10.5281/zenodo.23867471) The Type of a Rational Hodge Counterexample — all versions: [10.5281/zenodo.23867471](https://doi.org/10.5281/zenodo.23867471); latest version: [10.5281/zenodo.23905226](https://doi.org/10.5281/zenodo.23905226)
