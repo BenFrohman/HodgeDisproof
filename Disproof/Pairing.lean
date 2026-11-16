@@ -3,12 +3,19 @@ Copyright (c) 2026 Benjamin Stanley Frohman. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Benjamin Stanley Frohman
 -/
+
 /-
 How a pairing builds the miss witness p.
 This file does not supply γ_bad or α.
 -/
 
 import Disproof.Type
+
+/-!
+# Disproof.Pairing
+
+Machine-checked Lean 4 module.
+-/
 
 namespace HodgeDisproof
 
