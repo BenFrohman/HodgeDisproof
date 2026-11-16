@@ -4,6 +4,10 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23627612.svg)](https://doi.org/10.5281/zenodo.23627612)
 
+## Kernel certificate
+
+[certificates/CERTIFICATE.md](certificates/CERTIFICATE.md): commit `34af749`, `leanprover/lean4:v4.22.0`. `lake build` passes; the sorry/axiom scan finds 0 hits; **6 theorems depend only on `propext`, `Classical.choice`, `Quot.sound`**; 3 of 3 modules replayed through the kernel, 0 failures ([CI run](https://github.com/BenFrohman/HodgeDisproof/actions/runs/43938060415)).
+
 **Author:** Benjamin Stanley Frohman (ORCID: [0009-0006-7068-3718](https://orcid.org/0009-0006-7068-3718))  
 **Zenodo DOI:** [`10.5281/zenodo.23627612`](https://doi.org/10.5281/zenodo.23627612)  
 **Copyright:** © 2026 Benjamin Stanley Frohman  
