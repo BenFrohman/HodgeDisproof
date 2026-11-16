@@ -1,0 +1,7 @@
+'HodgeDisproof.missWitness_of_pairing' does not depend on any axioms
+'HodgeDisproof.counterexample_to_negation' does not depend on any axioms
+'HodgeDisproof.equivalence' depends on axioms: [Classical.choice, propext, Quot.sound]
+'HodgeDisproof.negation_to_counterexample' depends on axioms: [Classical.choice, propext, Quot.sound]
+'HodgeDisproof.not_exists_forall_not' does not depend on any axioms
+'HodgeDisproof.not_forall_exists_not' depends on axioms: [Classical.choice, propext, Quot.sound]
+AUDIT PASS: 6 theorems in 2 modules depend only on propext, Classical.choice, Quot.sound (or on no axioms)
