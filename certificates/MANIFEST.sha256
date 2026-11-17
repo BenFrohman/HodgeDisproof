@@ -1,0 +1,16 @@
+# Kernel certificate manifest
+# source commit: d2708a6b64e3ea62da687a7fba86e8eec0c435ea
+# lean-toolchain: leanprover/lean4:v4.22.0
+# Mathlib: none (no Mathlib dependency)
+# CI run: https://github.com/BenFrohman/HodgeDisproof/actions/runs/43953903981
+# rebuild: git clone https://github.com/BenFrohman/HodgeDisproof.git && cd HodgeDisproof && git checkout d2708a6b64e3ea62da687a7fba86e8eec0c435ea && lake build && python3 certificates/tools/sorry_scan.py && python3 certificates/tools/gen_audit.py /tmp/KernelCertificateAudit.lean /tmp/modules.txt && lake env lean /tmp/KernelCertificateAudit.lean > /tmp/axioms.raw.txt && python3 certificates/tools/check_audit.py /tmp/axioms.raw.txt | tail -n 1
+# verify: cd certificates && sha256sum -c MANIFEST.sha256
+299e6f7b3c92165ad2ccb5045b4a37d93289e06cb20373a65082ebc9a44d76fb  CERTIFICATE.md
+deb11686c1a7441dddc59bd1176304d740e8f0daff3bdb7e41dc74f1430fe772  KernelCertificateAudit.lean.txt
+22b4252b90432a7d9de5b2d0c6f83258e1416fe9abc8965f6d4554278cc689f6  axioms.raw.txt
+aaaf15512b3d4d7908f2e5b78512d604ba57390407efa5e6fa8ec85e0629da8c  axioms.txt
+0673660dcd20860fd0382366c2abf8e17e72c729fe22ff451c301747a4e13002  build.log
+dda88a01499e965fcfd37b32c559aa4a8abae797645866975c5851608fe442e9  environment.txt
+dbbea600012a69209bb0173b69be67b284d7188b215e040a6b4f7b2d0584b6e7  leanchecker.txt
+8ff391aa4a3df3417959c7e59090e6aa8430677b4803a81f69967d5ae7a92038  modules.txt
+4ca5f85dca6d8b4669275d49f9ebb2f9a224163faad1206e33b0dfd23b81c674  sorry-scan.txt

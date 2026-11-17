@@ -5,13 +5,13 @@ This file records a reproducible machine check of the Lean 4 development in this
 | Item | Value |
 |---|---|
 | Repository | https://github.com/BenFrohman/HodgeDisproof |
-| Certified commit | `34af749863579328acc6b4dfb5b5a17824caf165` (branch `chore/kernel-certificate`) |
-| Lean sources | identical to `main` at `0abc29a53102c8362d50add67197a4772bb986e2`: no `.lean`, lakefile, manifest or toolchain file differs; the certified commit only adds CI and the scripts in `certificates/tools/` |
+| Certified commit | `d2708a6b64e3ea62da687a7fba86e8eec0c435ea` (branch `main`) |
+| Lean sources | the certified commit is the `main` head itself; the certificate files were committed afterwards in a commit that changes no `.lean`, lakefile, manifest or toolchain file |
 | lean-toolchain | `leanprover/lean4:v4.22.0` |
 | Lean | Lean (version 4.22.0, x86_64-unknown-linux-gnu, commit ba2cbbf09d4978f416e0ebd1fceeebc2c4138c05, Release) |
 | Mathlib | none (no Mathlib dependency) |
-| Date (UTC) | 2026-11-16T19:20:15Z |
-| CI run | https://github.com/BenFrohman/HodgeDisproof/actions/runs/43938060415 |
+| Date (UTC) | 2026-11-16T20:50:46Z |
+| CI run | https://github.com/BenFrohman/HodgeDisproof/actions/runs/43953903981 |
 | `lake build` | `Build completed successfully.` ([build.log](build.log)) |
 | sorry / admit / native_decide / axiom scan | `RESULT: 0 hits` ([sorry-scan.txt](sorry-scan.txt)) |
 | `#print axioms` | `AUDIT PASS: 6 theorems in 2 modules depend only on propext, Classical.choice, Quot.sound (or on no axioms)` ([axioms.txt](axioms.txt)) |
@@ -42,5 +42,5 @@ Full `#print axioms` output (verbatim from `axioms.txt`):
 ## Rebuild
 
 ```
-git clone https://github.com/BenFrohman/HodgeDisproof.git && cd HodgeDisproof && git checkout 34af749863579328acc6b4dfb5b5a17824caf165 && lake build && python3 certificates/tools/sorry_scan.py && python3 certificates/tools/gen_audit.py /tmp/KernelCertificateAudit.lean /tmp/modules.txt && lake env lean /tmp/KernelCertificateAudit.lean > /tmp/axioms.raw.txt && python3 certificates/tools/check_audit.py /tmp/axioms.raw.txt | tail -n 1
+git clone https://github.com/BenFrohman/HodgeDisproof.git && cd HodgeDisproof && git checkout d2708a6b64e3ea62da687a7fba86e8eec0c435ea && lake build && python3 certificates/tools/sorry_scan.py && python3 certificates/tools/gen_audit.py /tmp/KernelCertificateAudit.lean /tmp/modules.txt && lake env lean /tmp/KernelCertificateAudit.lean > /tmp/axioms.raw.txt && python3 certificates/tools/check_audit.py /tmp/axioms.raw.txt | tail -n 1
 ```
